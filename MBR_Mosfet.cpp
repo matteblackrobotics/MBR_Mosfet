@@ -12,18 +12,19 @@ MBR_Mosfet::MBR_Mosfet(uint8_t mosfetPin){
     mosfetOff();
 }
 
-bool mosfetOn(){
-  _mosfetState = 1;
-  digitalWrite(_mosfetPin, HIGH);
-  return _mosfetState;
+
+bool MBR_Mosfet::mosfetOn(){
+  mosfetState = 1;
+  digitalWrite(_pin, HIGH);
+  return mosfetState;
 }
 
-bool mosfetOff(){
-  _mosfetState = 0;
-  digitalWrite(_mosfetPin, LOW);
-  return _mosfetState;
+bool MBR_Mosfet::mosfetOff(){
+  mosfetState = 0;
+  digitalWrite(_pin, LOW);
+  return mosfetState;
 }
 
-bool getMosfetState(){
-  return _mosfetState;
+bool MBR_Mosfet::getMosfetState(){
+  return mosfetState;
 }
