@@ -15,7 +15,7 @@ MBR_Mosfet::MBR_Mosfet(uint8_t pin){
 bool MBR_Mosfet::On(){
   state = 1;
   digitalWrite(_pin, HIGH);
-  return mosfetState;
+  return state;
 }
 
 bool MBR_Mosfet::Off(){
