@@ -6,24 +6,24 @@
 // Right: GND 
 
 // Constructor
-MBR_Mosfet::MBR_Mosfet(uint8_t mosfetPin){
-    _pin = mosfetPin;
+MBR_Mosfet::MBR_Mosfet(uint8_t pin){
+    _pin = pin;
     pinMode(_pin, OUTPUT);
-    mosfetOff();
+    Off();
 }
 
-bool MBR_Mosfet::mosfetOn(){
-  mosfetState = 1;
+bool MBR_Mosfet::On(){
+  state = 1;
   digitalWrite(_pin, HIGH);
   return mosfetState;
 }
 
-bool MBR_Mosfet::mosfetOff(){
-  mosfetState = 0;
+bool MBR_Mosfet::Off(){
+  state = 0;
   digitalWrite(_pin, LOW);
-  return mosfetState;
+  return state;
 }
 
-bool MBR_Mosfet::getMosfetState(){
-  return mosfetState;
+bool MBR_Mosfet::State(){
+  return state;
 }

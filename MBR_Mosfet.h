@@ -5,11 +5,11 @@
 
 class MBR_Mosfet{
   public:
-    MBR_Mosfet(uint8_t mosfetPin); // pin and Vin
-    bool mosfetOn();
-    bool mosfetOff();
-    bool getMosfetState();
-    bool mosfetState;
+    MBR_Mosfet(uint8_t pin); // pin and Vin
+    bool On();
+    bool Off();
+    bool State();
+    bool state;
 
   private:
     uint8_t _pin;
