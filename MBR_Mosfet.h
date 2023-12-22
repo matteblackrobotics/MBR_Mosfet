@@ -1,26 +1,18 @@
-#ifndef MBR_Pot_h
-#define MBR_Pot_h
+#ifndef MBR_Mosfet_h
+#define MBR_Mosfet_h
 
 #include <Arduino.h>
 
-class MBR_Pot{
+class MBR_Mosfet{
   public:
-    MBR_Pot(uint8_t potPin, float Vin); // pin and Vin
-    int readPotRaw(); // [0:1023] 10-bit
-    int potRaw;
-
-    float readPotVolt();  // voltage reading [0.0:Vin]
-    float potVolt;
-
-    float readPotNorm();  // normalized raading [0.0:100.0]
-    float potNorm;
-
-    float minLimit; // minimum limit value
-    float maxLimit; // maximum limit value
+    MBR_Mosfet(uint8_t mosfetPin); // pin and Vin
+    bool mosfetOn();
+    bool mosfetOff();
+    bool getMosfetState();
+    bool mosfetState;
 
   private:
     uint8_t _pin;
-    float _Vin;
 };
 
 

@@ -1,32 +1,29 @@
-#include "MBR_Pot.h"
+#include "MBR_Mosfet.h"
+
+// Need to update
 // Left: +5
 // Middle: signal
 // Right: GND 
 
-// hello
 // Constructor
-// Analog pin and voltageMax in volts
-MBR_Pot::MBR_Pot(uint8_t potPin, float Vin){
-    _pin = potPin;
-    _Vin = Vin;
-    pinMode(_pin, INPUT);
+MBR_Mosfet::MBR_Mosfet(uint8_t mosfetPin){
+    _pin = mosfetPin;
+    pinMode(_pin, OUTPUT);
+    mosfetOff();
 }
 
-float minLimit = 0.0;
-float maxLimit = 100.0;
-
-// Ouput [0:1023]
-int MBR_Pot::readPotRaw(){
-  potRaw = analogRead(_pin);
-  return potRaw; // [0:1023]
+bool mosfetOn(){
+  _mosfetState = 1;
+  digitalWrite(_mosfetPin, HIGH);
+  return _mosfetState;
 }
 
-float MBR_Pot::readPotVolt(){
-    potVolt = analogRead(_pin) * (_Vin/1023.0);
-    return potVolt; // [0:5.0]v
+bool mosfetOff(){
+  _mosfetState = 0;
+  digitalWrite(_mosfetPin, LOW);
+  return _mosfetState;
 }
 
-float MBR_Pot::readPotNorm(){
-    potNorm = analogRead(_pin) * (100.0/1023.0);
-    return potNorm; // [0.0:100.0]
+bool getMosfetState(){
+  return _mosfetState;
 }
