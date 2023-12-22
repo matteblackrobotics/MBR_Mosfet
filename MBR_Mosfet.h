@@ -15,5 +15,4 @@ class MBR_Mosfet{
     uint8_t _pin;
 };
 
-
 #endif
